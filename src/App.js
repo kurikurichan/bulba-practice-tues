@@ -2,6 +2,10 @@ import Showcase from "./Showcase";
 import BaseStats from "./BaseStats";
 import "./App.css";
 
+export function RandomComp(props) {
+  return <h1>Hi!</h1>;
+}
+
 function App() {
   const baseStats = {
     hp: 45,
@@ -11,10 +15,16 @@ function App() {
     spDef: 65,
     speed: 45
   };
+
+  const handleClick = () => {
+    alert(
+      `Special Stats\n\tSpecial Attack: ${baseStats.spAttack}\n\tSpecial Defense: ${baseStats.spDef}`
+    );
+  };
   return (
     <div className="main-wrapper background">
       <Showcase />
-      <BaseStats stats={baseStats} />
+      <BaseStats clicker={handleClick} stats={baseStats} />
     </div>
   );
 }
